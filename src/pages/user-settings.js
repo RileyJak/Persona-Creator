@@ -2,6 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import Header from "../components/header";
+import SettingsForm from "../components/settings-form";
 
 function UserSettings() {
   return (
@@ -10,7 +11,7 @@ function UserSettings() {
         <title>Personas 🤹‍♂️ &mdash; Settings </title>
       </Helmet>
       <Header />
-      This is where user settings will be
+      <SettingsForm />
       <button>
         <Link to="/">Log Out</Link>
       </button>
