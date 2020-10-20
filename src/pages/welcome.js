@@ -1,17 +1,20 @@
 import React from "react";
-import { Helmet } from "helmet";
 import { Link } from "react-router-dom";
+import "../css/welcome.css";
 
 function Welcome() {
   return (
     <>
-      Here is my welcome page
-      <button>
-        <Link to="/register">Register</Link>
-      </button>
-      <button>
-        <Link to="/login">Login</Link>
-      </button>
+      <h1 className="welcome__title">Personas</h1>
+
+      <div className="welcome__button-container">
+        <Link to="/register">
+          <button className="welcome__button">Register</button>
+        </Link>
+        <Link to="/login">
+          <button className="welcome__button">Login</button>
+        </Link>
+      </div>
     </>
   );
 }

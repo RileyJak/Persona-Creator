@@ -1,0 +1,52 @@
+.persona-form {
+  border: 3px solid #212738;
+  width: 85%;
+  height: 25rem;
+  border-radius: 15px;
+  background-color: #f5f5f5;
+}
+
+.persona-form__div {
+  margin: 2rem;
+  text-align: left;
+}
+
+.persona-form__label {
+  text-align: left;
+  display: block;
+  font-weight: 500;
+  font-size: 2rem;
+  margin-top: -2rem;
+}
+
+.persona-form__button-container {
+  text-align: center;
+}
+.persona-form__button {
+  height: 2.3rem;
+  width: 15rem;
+  font-weight: 500;
+  font-size: 1.4rem;
+  background-color: #212738;
+  color: white;
+  border-radius: 23px;
+}
+.persona-form__button:hover {
+  background-color: #d1d646;
+  color: #212738;
+}
+
+.persona-form__title {
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  font-weight: 600;
+  margin-left: 1rem;
+  margin-bottom: 0;
+}
+
+.persona-form__input {
+  width: 15rem;
+  height: 2rem;
+  font-size: 1.25rem;
+  background-color: #ffffff;
+}

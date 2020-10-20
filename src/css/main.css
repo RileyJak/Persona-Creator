@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap");
+
+* {
+  font-family: "Hind", sans-serif;
+  color: #212738;
+}
+body {
+  background: url(../images/background.png);
+  background-repeat: none;
+  background-size: cover;
+}

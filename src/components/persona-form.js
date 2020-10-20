@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "../css/persona-form.css";
 function PersonaForm() {
   const [age, setAge] = useState(4);
   const [gender, setGender] = useState(12);
@@ -13,19 +13,30 @@ function PersonaForm() {
 
   return (
     <>
-      <form>
-        <div>
-          <label>Gender:</label>
-          <select id="gender" value={gender} onChange={onGenderChange}>
+      <form className="persona-form">
+        <h2 className="persona-form__title">Create</h2>
+        <div className="persona-form__div">
+          <label className="persona-form__label">Gender:</label>
+          <select
+            className="persona-form__input"
+            id="gender"
+            value={gender}
+            onChange={onGenderChange}
+          >
             <option value="1">Female</option>
             <option value="2">Male</option>
             <option value="3">Non-Binary</option>
             <option value="4">N/A</option>
           </select>
         </div>
-        <div>
-          <label>Age Range:</label>
-          <select id="age" value={age} onChange={onAgeChange}>
+        <div className="persona-form__div">
+          <label className="persona-form__label">Age Range:</label>
+          <select
+            className="persona-form__input"
+            id="age"
+            value={age}
+            onChange={onAgeChange}
+          >
             <option value="1">0-4 years old</option>
             <option value="2">5-10 years old</option>
             <option value="3">11-15 years old</option>
@@ -40,8 +51,8 @@ function PersonaForm() {
             <option value="12">N/A</option>
           </select>
         </div>
-        <div>
-          <button>Create</button>
+        <div className="persona-form__button-container">
+          <button className="persona-form__button">Create</button>
         </div>
       </form>
     </>

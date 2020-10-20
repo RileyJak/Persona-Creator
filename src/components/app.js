@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "../pages/home";
 import Login from "../pages/log-in";
 import Register from "../pages/register";
@@ -7,7 +7,7 @@ import Saved from "../pages/saved";
 import UserSettings from "../pages/user-settings";
 import Welcome from "../pages/welcome";
 import Footer from "./footer";
-import Header from "./header";
+import "../css/main.css";
 
 function App() {
   return (

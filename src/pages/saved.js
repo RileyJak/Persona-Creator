@@ -7,7 +7,7 @@ function Saved() {
   return (
     <>
       <Helmet>
-        <title>Personas 🤹‍♂️ &mdash; Saved </title>
+        <title>Personas&mdash;Saved </title>
       </Helmet>
       <Header />
       <SavedGrid />

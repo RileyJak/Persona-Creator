@@ -1,0 +1,44 @@
+.register-form {
+  width: 25rem;
+  height: 30rem;
+  margin: 0 auto;
+  margin-top: 10rem;
+  border: 3px solid #212738;
+  border-radius: 15px;
+  background-color: #edf2ef;
+}
+
+.register-form__div {
+  margin: 2rem;
+  text-align: left;
+}
+
+.register-form__label {
+  text-align: left;
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.register-form__input {
+  width: 20rem;
+  font-size: 1rem;
+}
+
+.register-form__button {
+  color: white;
+  margin: 3rem;
+  margin-top: 3rem;
+  width: 15rem;
+  height: 2.35rem;
+  font-weight: 500;
+  font-size: 1.4rem;
+  background-color: #212738;
+  border-radius: 23px;
+  margin-left: 20%;
+}
+
+.register-form__button:hover {
+  background-color: #d1d646;
+  color: #212738;
+}

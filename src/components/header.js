@@ -8,7 +8,7 @@ function Header() {
         <nav className="header__nav">
           <nav>
             <Link to="/home">Home</Link> | <Link to="/saved">Saved</Link> |{" "}
-            <Link to="/settings">Settings</Link>
+            <Link to="/settings">Settings</Link> | <Link to="/">Logout</Link>
           </nav>
         </nav>
       </header>

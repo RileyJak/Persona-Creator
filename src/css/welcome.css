@@ -1,0 +1,28 @@
+.welcome__title {
+  text-align: center;
+  font-size: 10rem;
+  margin-top: 5rem;
+  margin-bottom: 7rem;
+  font-weight: 700;
+}
+
+.welcome__button {
+  color: white;
+  margin: 3rem;
+  margin-top: 3rem;
+  width: 25rem;
+  height: 2.35rem;
+  font-weight: 500;
+  font-size: 1.4rem;
+  background-color: #212738;
+  border-radius: 23px;
+}
+
+.welcome__button:hover {
+  background-color: #d1d646;
+  color: #212738;
+}
+
+.welcome__button-container {
+  text-align: center;
+}

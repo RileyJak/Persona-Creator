@@ -1,0 +1,26 @@
+.saved {
+  float: left;
+  width: 30%;
+  margin-bottom: 7rem;
+  border: 3px solid #212738;
+  border-radius: 15px;
+  margin-left: 3rem;
+  background-color: #edf2ef;
+}
+.saved:hover {
+  border: 3px solid #d1d646;
+}
+.saved__container {
+  text-align: center;
+  margin-top: 7rem;
+  width: 100%;
+  margin-left: -1rem;
+}
+.saved__picture {
+  margin-top: 1rem;
+  width: 10rem;
+}
+
+.saved__name {
+  font-size: 2rem;
+}
