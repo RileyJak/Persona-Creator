@@ -4,7 +4,7 @@ import "../css/footer.css";
 function Footer() {
   return (
     <>
-      <div>
+      <div className="footer__container">
         <p className="footer">© Riley Jakusik {new Date().getFullYear()}</p>
       </div>
     </>

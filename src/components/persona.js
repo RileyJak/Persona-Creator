@@ -13,7 +13,7 @@ function Persona() {
 
           <h3 className="persona__personality">Personality type</h3>
           <h3 className="persona__disney">Fave disney character</h3>
-          <h3 className="persona__email-adress">Email | Adress</h3>
+          <h3 className="persona__email-adress">Email | Address</h3>
         </div>
       </div>
     </>

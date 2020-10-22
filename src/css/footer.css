@@ -2,9 +2,9 @@
   font-size: 0.9rem;
   text-align: left;
   color: #212738;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
   float: left;
-  left: 0px;
-  bottom: 0px;
-  height: 30px;
-  width: 100%;
 }

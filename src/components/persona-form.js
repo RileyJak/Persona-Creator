@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "../css/persona-form.css";
 function PersonaForm() {
-  const [age, setAge] = useState(4);
-  const [gender, setGender] = useState(12);
+  const [age, setAge] = useState("N/A");
+  const [gender, setGender] = useState("n/a");
 
   const onAgeChange = (event) => {
     setAge(event.target.value);
@@ -26,7 +26,7 @@ function PersonaForm() {
             <option value="1">Female</option>
             <option value="2">Male</option>
             <option value="3">Non-Binary</option>
-            <option value="4">N/A</option>
+            <option value="n/a">N/A</option>
           </select>
         </div>
         <div className="persona-form__div">
@@ -48,7 +48,7 @@ function PersonaForm() {
             <option value="9">56-65 years old</option>
             <option value="10">66-75 years old</option>
             <option value="11">75+ years old</option>
-            <option value="12">N/A</option>
+            <option value="N/A">N/A</option>
           </select>
         </div>
         <div className="persona-form__button-container">
