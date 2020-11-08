@@ -8,42 +8,45 @@
 
 .persona__content {
   margin-top: -5rem;
-  text-align: center;
-  margin-left: -2rem;
+  text-align: left;
 }
 
 .persona__image {
   float: left;
   width: 20rem;
-  margin-top: 3rem;
-  margin-left: 3rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
   margin-right: -10rem;
 }
 
 .persona__name {
-  font-size: 5rem;
+  font-size: 2.5rem;
+  margin-left: 22rem;
+  margin-top: 5rem;
   margin-bottom: -1.75rem;
-  font-weight: 100;
-  text-align: center;
+  font-weight: 400;
 }
 
 .persona__age-gender {
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 300;
+  margin-left: 22rem;
 }
 
 .persona__personality {
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 300;
+  margin-left: 22rem;
 }
 
-.persona__disney {
+.persona__email-address {
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 300;
+  margin-left: 22rem;
 }
 
-.persona__email-adress {
+.persona__address {
   font-size: 1.5rem;
-  font-weight: 500;
-  margin-left: 4rem;
+  font-weight: 300;
+  margin-left: 22rem;
 }

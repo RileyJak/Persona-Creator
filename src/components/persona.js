@@ -1,23 +1,52 @@
 import React from "react";
-import holder from "../images/icons8-person-64.png";
 import "../css/persona.css";
 import SaveButton from "./save-button";
 
-function Persona() {
+function Persona(props) {
+  const { isSaving, OnSubmit } = props;
+  const onSaveSubmit = async (event) => {
+    event.preventDefault();
+    OnSubmit(address, email, gender, image, name);
+  };
+  var faker = require("faker");
+
+  var name = faker.name.findName();
+  var gender = faker.name.gender();
+  var age = faker.random.number();
+  var image = faker.image.people();
+  var job = faker.name.jobType();
+  var company = faker.company.companyName();
+  var email = faker.internet.email();
+  var address = faker.address.streetAddress();
+  var state = faker.address.stateAbbr();
+
   return (
     <>
-      <div className="persona">
-        <SaveButton />
-        <img className="persona__image" src={holder} />
+      <form className="persona" onSubmit={onSaveSubmit}>
+        <input className="SaveButton" type="submit" value={SaveButton} />
+        <img value={image} className="persona__image" src={image} />
         <div className="persona__content">
-          <h1 className="persona__name">Name</h1>
-          <h3 className="persona__age-gender"> Age | Gender</h3>
+          <h1 value={name} className="persona__name">
+            {name}
+          </h1>
+          <h3
+            value={gender}
+            className="persona__age-gender"
+          >{`${age} | ${gender}`}</h3>
+          <h3
+            value={job}
+            className="persona__personality"
+          >{`${job} @ ${company}`}</h3>
 
-          <h3 className="persona__personality">Personality type</h3>
-          <h3 className="persona__disney">Fave disney character</h3>
-          <h3 className="persona__email-adress">Email | Address</h3>
+          <h3
+            value={address}
+            className="persona__address"
+          >{`${address}, ${state}`}</h3>
+          <h3 value={email} className="persona__email-address">
+            {email}
+          </h3>
         </div>
-      </div>
+      </form>
     </>
   );
 }

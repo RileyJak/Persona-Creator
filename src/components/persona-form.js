@@ -25,7 +25,6 @@ function PersonaForm() {
           >
             <option value="1">Female</option>
             <option value="2">Male</option>
-            <option value="3">Non-Binary</option>
             <option value="n/a">N/A</option>
           </select>
         </div>
