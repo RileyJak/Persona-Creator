@@ -25,3 +25,15 @@
 .SaveButton:visited {
   background-color: #003557;
 }
+
+.SaveButton-saved {
+  background-color: #003557;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 10px solid #0065a6;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0, 1.26, 0.8, 1.28);
+  margin-left: 40rem;
+  margin-top: 0.5rem;
+}

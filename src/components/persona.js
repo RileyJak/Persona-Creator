@@ -1,13 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import "../css/persona.css";
 import SaveButton from "./save-button";
+import { personas } from "../data/firebase";
+import Loading from "./loading-spinner";
 
-function Persona(props) {
-  const { isSaving, OnSubmit } = props;
+function Persona() {
+  const [isSaving, setIsSaving] = useState(false);
+  const [hasSaved, setHasSaved] = useState(false);
+
   const onSaveSubmit = async (event) => {
     event.preventDefault();
-    OnSubmit(address, email, gender, image, name);
+    setIsSaving(true);
+    try {
+      await personas.add({
+        address,
+        email,
+        gender,
+        image,
+        name,
+        job,
+      });
+    } catch {
+      console.log("error");
+    }
+
+    setIsSaving(false);
   };
+
+  let classes = "SaveButton";
+  if (hasSaved === true) classes += "SaveButton-saved";
+
   var faker = require("faker");
 
   var name = faker.name.findName();
@@ -23,7 +45,13 @@ function Persona(props) {
   return (
     <>
       <form className="persona" onSubmit={onSaveSubmit}>
-        <input className="SaveButton" type="submit" value={SaveButton} />
+        <button
+          className={classes}
+          onClick={() => setHasSaved(true)}
+          type="submit"
+          value={SaveButton}
+        />
+        {isSaving && <Loading />}
         <img value={image} className="persona__image" src={image} />
         <div className="persona__content">
           <h1 value={name} className="persona__name">

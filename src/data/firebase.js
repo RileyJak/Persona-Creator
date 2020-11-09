@@ -13,7 +13,7 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
-const moviesCollection = db.collection("personas");
+const personas = db.collection("personas");
 
 export default db;
 export { personas };
