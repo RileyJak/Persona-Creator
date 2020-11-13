@@ -1,40 +1,51 @@
-import React from "react";
-import holder from "../images/icons8-person-64.png";
+import React, { useEffect, useState } from "react";
 import "../css/saved-grid.css";
+import { personas } from "../data/firebase";
+import Person from "./persona-save";
+import Loading from "./loading-spinner";
 
 function SavedGrid() {
+  const [persona, setPersona] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    setIsLoading(true);
+    const onNext = (snapshot) => {
+      setIsLoading(false);
+      const docs = snapshot.docs;
+      setPersona(docs);
+    };
+    const onError = (error) => {
+      setErrorMessage(
+        "There was a problem loading your movie ratings. Please try again."
+      );
+      console.error(error);
+    };
+    const unsubscribe = personas
+      .orderBy("time", "desc")
+      .onSnapshot(onNext, onError);
+    return unsubscribe;
+  }, []);
+
   return (
     <>
-      <div className="saved__container">
-        <div className="saved">
-          <img className="saved__picture" src={holder} />
-          <h3 className="saved__name">Name</h3>
-        </div>
+      <div className="persona-container">
+        {isLoading && <Loading />}
 
-        <div className="saved">
-          <img className="saved__picture" src={holder} />
-          <h3 className="saved__name">Name</h3>
-        </div>
+        {errorMessage && "this is error"}
+        <ul className="persona-list">
+          {persona.map((personaDoc) => {
+            const id = personaDoc.id;
+            const data = personaDoc.data();
 
-        <div className="saved">
-          <img className="saved__picture" src={holder} />
-          <h3 className="saved__name">Name</h3>
-        </div>
-
-        <div className="saved">
-          <img className="saved__picture" src={holder} />
-          <h3 className="saved__name">Name</h3>
-        </div>
-
-        <div className="saved">
-          <img className="saved__picture" src={holder} />
-          <h3 className="saved__name">Name</h3>
-        </div>
-
-        <div className="saved">
-          <img className="saved__picture" src={holder} />
-          <h3 className="saved__name">Name</h3>
-        </div>
+            return (
+              <li key={id}>
+                <Person id={id} data={data} />
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </>
   );

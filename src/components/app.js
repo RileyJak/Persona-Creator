@@ -8,7 +8,6 @@ import UserSettings from "../pages/user-settings";
 import Welcome from "../pages/welcome";
 import Footer from "./footer";
 import "../css/main.css";
-import Loading from "./loading-spinner";
 
 function App() {
   return (

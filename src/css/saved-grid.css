@@ -1,26 +1,19 @@
-.saved {
-  float: left;
-  width: 28%;
-  margin-bottom: 7rem;
-  border: 3px solid #212738;
-  border-radius: 15px;
-  margin-left: 3rem;
-  background-color: #edf2ef;
-}
-.saved:hover {
-  border: 3px solid #d1d646;
-}
-.saved__container {
-  text-align: center;
+.persona-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 7rem;
-  width: 100%;
-  margin-left: -1rem;
-}
-.saved__picture {
-  margin-top: 1rem;
-  width: 10rem;
 }
 
-.saved__name {
-  font-size: 2rem;
+.persona-list {
+  display: inline-grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-items: center;
+  align-items: center;
+  justify-content: space-around;
 }

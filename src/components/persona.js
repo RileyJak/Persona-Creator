@@ -3,14 +3,48 @@ import "../css/persona.css";
 import SaveButton from "./save-button";
 import { personas } from "../data/firebase";
 import Loading from "./loading-spinner";
+import faker from "faker";
+import firebase from "firebase/app";
 
 function Persona() {
+  function getAge(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
   const [isSaving, setIsSaving] = useState(false);
   const [hasSaved, setHasSaved] = useState(false);
+  const [personaData, setPersonaData] = useState(() => {
+    return {
+      name: faker.name.findName(),
+      gender: faker.name.gender(),
+      age: getAge(1, 100),
+      image: faker.image.people(),
+      job: faker.name.jobType(),
+      company: faker.company.companyName(),
+      email: faker.internet.email(),
+      address: faker.address.streetAddress(),
+      state: faker.address.stateAbbr(),
+    };
+  });
+
+  const {
+    address,
+    email,
+    gender,
+    image,
+    name,
+    job,
+    age,
+    company,
+    state,
+  } = personaData;
 
   const onSaveSubmit = async (event) => {
-    event.preventDefault();
     setIsSaving(true);
+    setHasSaved(false);
+    event.preventDefault();
     try {
       await personas.add({
         address,
@@ -19,7 +53,12 @@ function Persona() {
         image,
         name,
         job,
+        age,
+        company,
+        state,
+        time: firebase.firestore.Timestamp.now(),
       });
+      setHasSaved(true);
     } catch {
       console.log("error");
     }
@@ -28,48 +67,23 @@ function Persona() {
   };
 
   let classes = "SaveButton";
-  if (hasSaved === true) classes += "SaveButton-saved";
-
-  var faker = require("faker");
-
-  var name = faker.name.findName();
-  var gender = faker.name.gender();
-  var age = faker.random.number();
-  var image = faker.image.people();
-  var job = faker.name.jobType();
-  var company = faker.company.companyName();
-  var email = faker.internet.email();
-  var address = faker.address.streetAddress();
-  var state = faker.address.stateAbbr();
+  if (hasSaved === true) classes += "-saved";
 
   return (
     <>
       <form className="persona" onSubmit={onSaveSubmit}>
-        <button
-          className={classes}
-          onClick={() => setHasSaved(true)}
-          type="submit"
-          value={SaveButton}
-        />
-        {isSaving && <Loading />}
-        <img value={image} className="persona__image" src={image} />
+        {isSaving ? (
+          <Loading />
+        ) : (
+          <button className={classes} disabled={hasSaved} />
+        )}
+        <img className="persona__image" src={image} />
         <div className="persona__content">
-          <h1 value={name} className="persona__name">
-            {name}
-          </h1>
-          <h3
-            value={gender}
-            className="persona__age-gender"
-          >{`${age} | ${gender}`}</h3>
-          <h3
-            value={job}
-            className="persona__personality"
-          >{`${job} @ ${company}`}</h3>
+          <h1 className="persona__name">{name}</h1>
+          <h3 className="persona__age-gender">{`${age} | ${gender}`}</h3>
+          <h3 className="persona__personality">{`${job} @ ${company}`}</h3>
 
-          <h3
-            value={address}
-            className="persona__address"
-          >{`${address}, ${state}`}</h3>
+          <h3 className="persona__address">{`${address}, ${state}`}</h3>
           <h3 value={email} className="persona__email-address">
             {email}
           </h3>
