@@ -1,3 +1,15 @@
+# Personas
+## About Personas
+This web app was created as an independent final project for a code sprint class at Columbia College Chicago. It includes react framework and a firebase/firestore data base. 
+
+The overall goal of the web app is to make generating persona content easier. As a UX designer I spend a lot of time creating personas. I also found that some of the random data I struggled to think of each time. I wanted to create a tool I could use to generate the general infromation for a persona that is not necessarily project dependent. I found a few similar web apps but they all lacked the ability to dictate gender or age. I wanted to create a tool where the user can dictate either age, gender, both, or neither and get back useful data for their user personas.
+
+## Current State
+
+## Notes
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
