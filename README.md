@@ -1,3 +1,16 @@
+# Personas
+## About Personas
+This web app was created as an independent final project for a code sprint class at Columbia College Chicago. It includes react framework and a firebase/firestore data base. 
+
+The overall goal of the web app is to make generating persona content easier. As a UX designer I spend a lot of time creating personas. I also found that some of the random data I struggled to think of each time. I wanted to create a tool I could use to generate the general infromation for a persona that is not necessarily project dependent. I found a few similar web apps but they all lacked the ability to dictate gender or age. I wanted to create a tool where the user can dictate either age, gender, both, or neither and get back useful data for their user personas.
+
+## Current State
+As the web app stands users can generate a random persona and save said persona. I am working towards implamentation of the drop down menus. The drop down menus will control the gender and age of the persona generated. Also I am working on the image component. The gender and age selections will dictate which photo is generated. The  photo will come from a pool of photos that meet the specfications of the drop of the down and be randomized within that pool. I also plan on giving users the ability to organize the personas into diffrent project folders for personal organization. User accounts will also be implamented later in the project.
+
+## Notes
+The web app currently is not as responsive as it should be I plan on polishing the responsive nature once all features are implamented. As of now it works on both my 32in monitor and my 13in macbook air.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
