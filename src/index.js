@@ -6,3 +6,5 @@ const root = document.querySelector("#root");
 console.log(root);
 
 ReactDOM.render(<App />, root);
+
+console.log(process.env);
