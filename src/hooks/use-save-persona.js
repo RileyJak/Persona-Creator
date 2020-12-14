@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { personas } from "../data/firebase";
+import { personas, users } from "../data/firebase";
 import firebase from "firebase/app";
 import faker from "faker";
 
-function useSavePersona() {
+function useSavePersona(userId) {
 	const [isSaving, setIsSaving] = useState(false);
 	const [hasSaved, setHasSaved] = useState(false);
 
@@ -42,12 +42,12 @@ function useSavePersona() {
 	let classes = "SaveButton";
 	if (hasSaved === true) classes += "-saved";
 
-	const save = async (event) => {
+	const save = async (event, userId) => {
 		setIsSaving(true);
 		setHasSaved(false);
 		event.preventDefault();
 		try {
-			await personas.add({
+			await users.doc(userId).collection("personas").add({
 				address,
 				email,
 				gender,

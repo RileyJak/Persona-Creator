@@ -1,7 +1,7 @@
-import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { auth } from "../data/firebase";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Home from "../pages/home";
-import Login from "../pages/log-in";
 import Register from "../pages/register";
 import Saved from "../pages/saved";
 import UserSettings from "../pages/user-settings";
@@ -9,40 +9,52 @@ import Welcome from "../pages/welcome";
 import Footer from "./footer";
 import "../css/main.css";
 
+function AuthRoute(props) {
+	const { isAuth, children, ...routeProps } = props;
+	return (
+		<Route {...routeProps}>{isAuth ? children : <Redirect to="/" />}</Route>
+	);
+}
 function App() {
-  return (
-    <>
-      <BrowserRouter>
-        <Switch>
-          <Route path="/home">
-            <Home />
-          </Route>
+	const [user, setUser] = useState(null);
+	const isAuth = user !== null;
 
-          <Route path="/login">
-            <Login />
-          </Route>
+	useEffect(() => {
+		const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+			setUser(currentUser);
+		});
+		return unsubscribe;
+	}, []);
 
-          <Route path="/register">
-            <Register />
-          </Route>
+	return (
+		<>
+			<BrowserRouter>
+				<Switch>
+					<AuthRoute path="/home" isAuth={isAuth}>
+						<Home user={user} />
+					</AuthRoute>
 
-          <Route path="/saved">
-            <Saved />
-          </Route>
+					<Route path="/register">
+						<Register />
+					</Route>
 
-          <Route path="/settings">
-            <UserSettings />
-          </Route>
+					<Route path="/saved">
+						<Saved user={user} />
+					</Route>
 
-          <Route path="/" exact>
-            <Welcome />
-          </Route>
-        </Switch>
-      </BrowserRouter>
+					<Route path="/settings">
+						<UserSettings />
+					</Route>
 
-      <Footer />
-    </>
-  );
+					<Route path="/" exact>
+						<Welcome user={user} />
+					</Route>
+				</Switch>
+			</BrowserRouter>
+
+			<Footer />
+		</>
+	);
 }
 
 export default App;

@@ -4,7 +4,8 @@ import SaveButton from "./save-button";
 import Loading from "./loading-spinner";
 import useSavePersona from "../hooks/use-save-persona";
 
-function Persona() {
+function Persona(props) {
+	const userId = props.user.uid;
 	const [
 		save,
 		isSaving,
@@ -19,7 +20,7 @@ function Persona() {
 		company,
 		state,
 		classes,
-	] = useSavePersona();
+	] = useSavePersona(userId);
 
 	return (
 		<>

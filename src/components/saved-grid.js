@@ -4,8 +4,9 @@ import useAllPersonas from "../hooks/use-all-personas";
 import Person from "./persona-save";
 import Loading from "./loading-spinner";
 
-function SavedGrid() {
-	const [persona, isLoading, errorMessage] = useAllPersonas();
+function SavedGrid(props) {
+	const userId = props.user.uid;
+	const [persona, isLoading, errorMessage] = useAllPersonas(userId);
 	return (
 		<div className="persona-container">
 			{isLoading && <Loading />}
