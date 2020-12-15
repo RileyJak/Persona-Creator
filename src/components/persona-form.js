@@ -1,19 +1,42 @@
 import React, { useState } from "react";
 import "../css/persona-form.css";
-function PersonaForm() {
-  const [age, setAge] = useState("N/A");
-  const [gender, setGender] = useState("n/a");
+function PersonaForm(props) {
+  //const [age, setAge] = useState("N/A");
+  //const [gender, setGender] = useState("n/a");
+  const [
+		save,
+		isSaving,
+		hasSaved,
+		address,
+		email,
+		gender,
+		image,
+		name,
+		job,
+		age,
+		company,
+		state,
+    classes,
+    randomData,
+  ] = props.data;
+  
+  const userId = props.user.uid;
 
   const onAgeChange = (event) => {
-    setAge(event.target.value);
+    //setAge(event.target.value);
   };
   const onGenderChange = (event) => {
-    setGender(event.target.value);
+    //setGender(event.target.value);
   };
+
+const onSubmit = (event) => {
+  event.preventDefault();
+  randomData();
+}
 
   return (
     <>
-      <form className="persona-form">
+      <form onSubmit={onSubmit} className="persona-form">
         <h2 className="persona-form__title">Create</h2>
         <div className="persona-form__div">
           <label className="persona-form__label">Gender:</label>

@@ -37,8 +37,8 @@ class Menu extends Component {
 					<h2 className="nav">Settings</h2>
 				</Link>
 
-				<Link to="/">
-					<h2 onClick={signOut} className="nav">
+				<Link onClick={signOut} to="/">
+					<h2  className="nav">
 						Logout
 					</h2>
 				</Link>

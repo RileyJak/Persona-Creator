@@ -20,11 +20,11 @@ function Persona(props) {
 		company,
 		state,
 		classes,
-	] = useSavePersona(userId);
+	] = props.data;
 
 	return (
 		<>
-			<form className="persona" onSubmit={save}>
+			<form className="persona" onSubmit={save(userId )}>
 				{isSaving ? (
 					<Loading />
 				) : (
