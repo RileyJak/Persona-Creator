@@ -6,7 +6,6 @@ import faker from "faker";
 function useSavePersona(userId) {
 	const [isSaving, setIsSaving] = useState(false);
 	const [hasSaved, setHasSaved] = useState(false);
-	
 
 	const [personaData, setPersonaData] = useState(() => {
 		return {
@@ -23,7 +22,8 @@ function useSavePersona(userId) {
 	});
 
 	const randomData = () => {
-		setPersonaData({name: faker.name.findName(),
+		setPersonaData({
+			name: faker.name.findName(),
 			gender: faker.name.gender(),
 			age: getAge(1, 100),
 			image: faker.image.people(),
@@ -31,10 +31,9 @@ function useSavePersona(userId) {
 			company: faker.company.companyName(),
 			email: faker.internet.email(),
 			address: faker.address.streetAddress(),
-			state: faker.address.stateAbbr(),});
-
-			
-	}
+			state: faker.address.stateAbbr(),
+		});
+	};
 
 	const {
 		address,
@@ -60,10 +59,8 @@ function useSavePersona(userId) {
 	const save = async (event, userId) => {
 		setIsSaving(true);
 		setHasSaved(false);
-		event.preventDefault();
 		try {
-			await users.doc(userId)
-			.collection("personas").add({
+			await users.doc(userId).collection("personas").add({
 				address,
 				email,
 				gender,
@@ -76,7 +73,7 @@ function useSavePersona(userId) {
 				time: firebase.firestore.Timestamp.now(),
 			});
 			setHasSaved(true);
-		} catch(error) {
+		} catch (error) {
 			console.log(error);
 		}
 
