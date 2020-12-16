@@ -19,7 +19,7 @@ function SavedGrid(props) {
 
 					return (
 						<li key={id}>
-							<Person id={id} data={data} />
+							<Person userId={userId} id={id} data={data} />
 						</li>
 					);
 				})}

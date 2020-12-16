@@ -5,7 +5,6 @@ function useAllPersonas(userId) {
 	const [persona, setPersona] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [errorMessage, setErrorMessage] = useState("");
-
 	useEffect(() => {
 		setIsLoading(true);
 		const onNext = (snapshot) => {

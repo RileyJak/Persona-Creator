@@ -12,6 +12,7 @@ function Welcome() {
 			console.error(error);
 		}
 	};
+
 	return (
 		<>
 			<h1 className="welcome__title">Personas</h1>

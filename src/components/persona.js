@@ -2,10 +2,9 @@ import React from "react";
 import "../css/persona.css";
 import SaveButton from "./save-button";
 import Loading from "./loading-spinner";
-import useSavePersona from "../hooks/use-save-persona";
 
 function Persona(props) {
-	const userId = props.user.uid;
+	const userId = props.userId;
 	const [
 		save,
 		isSaving,
@@ -22,9 +21,14 @@ function Persona(props) {
 		classes,
 	] = props.data;
 
+	const onSubmit = (event) => {
+		event.preventDefault();
+		save();
+		console.log(userId);
+	};
 	return (
 		<>
-			<form className="persona" onSubmit={save(userId )}>
+			<form className="persona" onSubmit={onSubmit}>
 				{isSaving ? (
 					<Loading />
 				) : (

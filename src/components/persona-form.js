@@ -32,6 +32,7 @@ function PersonaForm(props) {
 	const onSubmit = (event) => {
 		event.preventDefault();
 		randomData();
+		console.log(userId);
 	};
 
 	return (

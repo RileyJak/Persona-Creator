@@ -56,9 +56,10 @@ function useSavePersona(userId) {
 	let classes = "SaveButton";
 	if (hasSaved === true) classes += "-saved";
 
-	const save = async (event, userId) => {
+	const save = async (userId, event) => {
 		setIsSaving(true);
 		setHasSaved(false);
+		console.log(userId);
 		try {
 			await users.doc(userId).collection("personas").add({
 				address,

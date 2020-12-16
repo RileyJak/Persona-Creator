@@ -7,24 +7,23 @@ import "../css/home-page.css";
 import useSavePersona from "../hooks/use-save-persona";
 
 function Home(props) {
-
 	const userId = props.user.uid;
 	const personData = useSavePersona(userId);
-
+	console.log(userId);
 
 	return (
 		<>
 			<Helmet>
 				<title>Personas&mdash;Home </title>
 			</Helmet>
- <Header></Header>  
+			<Header></Header>
 			<div className="home">
 				<div className="home__form">
 					<PersonaForm {...props} data={personData} />
 				</div>
 
 				<div className="home__display">
-					<Persona {...props} data={personData}/>
+					<Persona {...props} data={personData} />
 				</div>
 			</div>
 		</>
