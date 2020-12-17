@@ -1,10 +1,10 @@
 import React from "react";
 import "../css/persona.css";
-import SaveButton from "./save-button";
+import "../css/save-button.css";
 import Loading from "./loading-spinner";
 
 function Persona(props) {
-	const userId = props.userId;
+	const userId = props.user.uid;
 	const [
 		save,
 		isSaving,
@@ -23,8 +23,7 @@ function Persona(props) {
 
 	const onSubmit = (event) => {
 		event.preventDefault();
-		save();
-		console.log(userId);
+		save(userId);
 	};
 	return (
 		<>

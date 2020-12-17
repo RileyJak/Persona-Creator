@@ -22,6 +22,7 @@ function useSavePersona(userId) {
 	});
 
 	const randomData = () => {
+		console.log(userId);
 		setPersonaData({
 			name: faker.name.findName(),
 			gender: faker.name.gender(),
@@ -75,7 +76,7 @@ function useSavePersona(userId) {
 			});
 			setHasSaved(true);
 		} catch (error) {
-			console.log(error);
+			console.error(error);
 		}
 
 		setIsSaving(false);

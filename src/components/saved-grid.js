@@ -7,6 +7,9 @@ import Loading from "./loading-spinner";
 function SavedGrid(props) {
 	const userId = props.user.uid;
 	const [persona, isLoading, errorMessage] = useAllPersonas(userId);
+
+	console.log(userId);
+
 	return (
 		<div className="persona-container">
 			{isLoading && <Loading />}

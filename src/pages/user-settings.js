@@ -4,16 +4,16 @@ import { Helmet } from "react-helmet";
 import Header from "../components/header";
 import SettingsForm from "../components/settings-form";
 
-function UserSettings() {
-  return (
-    <>
-      <Helmet>
-        <title>Personas&mdash;Settings </title>
-      </Helmet>
-      <Header />
-      <SettingsForm />
-    </>
-  );
+function UserSettings(props) {
+	return (
+		<>
+			<Helmet>
+				<title>Personas&mdash;Settings </title>
+			</Helmet>
+			<Header />
+			<SettingsForm {...props} />
+		</>
+	);
 }
 
 export default UserSettings;

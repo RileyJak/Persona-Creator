@@ -5,7 +5,7 @@ import ErrorMessage from "./error-message";
 import "../css/persona-save.css";
 
 function Person(props) {
-	const { id, data } = props;
+	const { id, data, userId } = props;
 	const [isDeleting, setIsDeleting] = useState(false);
 	const [errorMessage, setErrorMessage] = useState("");
 	const {
@@ -19,7 +19,6 @@ function Person(props) {
 		company,
 		state,
 	} = data;
-	const userId = props.user.uid;
 	const deletePersona = async () => {
 		setIsDeleting(true);
 		setErrorMessage("");
