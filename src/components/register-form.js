@@ -4,39 +4,43 @@ import "../css/register-form.css";
 import { users } from "../data/firebase";
 
 function RegisterForm(props) {
-	const {
-		name,
-		company,
-		role,
-		onNameChange,
-		onRoleChange,
-		onCompanyChange,
-		userId,
-	} = props;
+	const { user } = props;
 
 	const [isSaving, setIsSaving] = useState(false);
-	
+
+	const [name, setName] = useState();
+	const [role, setRole] = useState();
+	const [company, setCompany] = useState();
+
+	const onNameChange = (event) => {
+		setName(event.target.value);
+	};
+
+	const onRoleChange = (event) => {
+		setRole(event.target.value);
+	};
+	const onCompanyChange = (event) => {
+		setCompany(event.target.value);
+	};
 
 	const save = async (event) => {
+		event.preventDefault();
 		setIsSaving(true);
 		try {
-		  await users.doc(userId).add({
-			name,
-			role,
-			company,
-		  });
-		  
+			await users.doc(user.uid).set({
+				name,
+				role,
+				company,
+			});
 		} catch (error) {
-		  console.error(error);
+			console.error(error);
 		}
 		setIsSaving(false);
-	  };
+	};
 
-
-	
 	return (
 		<>
-			<form className="register-form">
+			<form onSubmit={save} className="register-form">
 				<div className="register-form__div">
 					<label className="register-form__label">Name:</label>
 					<input
@@ -69,9 +73,8 @@ function RegisterForm(props) {
 					></input>
 				</div>
 				<div className="register-form__button-container">
-					<Link to="/home">
-						<button onClick={save} className="register-form__button">Register</button>
-					</Link>
+					<button className="register-form__button">Register</button>
+					<Link to="/home">Continue</Link>
 				</div>
 			</form>
 		</>

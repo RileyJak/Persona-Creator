@@ -26,21 +26,6 @@ function App() {
 		return unsubscribe;
 	}, []);
 
-	const [name, setName] = useState();
-	const [role, setRole] = useState();
-	const [company, setCompany] = useState();
-
-	const onNameChange = (event) => {
-		setName(event.target.value);
-	};
-
-	const onRoleChange = (event) => {
-		setCompany(event.target.value);
-	};
-	const onCompanyChange = (event) => {
-		setRole(event.target.value);
-	};
-
 	return (
 		<>
 			<BrowserRouter>
@@ -50,7 +35,7 @@ function App() {
 					</AuthRoute>
 
 					<Route path="/register">
-						<Register user={user}/>
+						<Register user={user} />
 					</Route>
 
 					<Route path="/saved">
@@ -58,25 +43,11 @@ function App() {
 					</Route>
 
 					<Route path="/settings">
-						<UserSettings
-							setName={setName}
-							setRole={setRole}
-							setCompnay={setCompany}
-							name={name}
-							role={role}
-							company={company}
-						/>
+						<UserSettings user={user} />
 					</Route>
 
 					<Route path="/" exact>
-						<Welcome
-							setName={setName}
-							setRole={setRole}
-							setCompnay={setCompany}
-							name={name}
-							role={role}
-							company={company}
-						/>
+						<Welcome user={user} />
 					</Route>
 				</Switch>
 			</BrowserRouter>

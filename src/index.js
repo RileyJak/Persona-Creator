@@ -21,3 +21,17 @@ ReactDOM.render(<App />, root);
 //}
 
 //getAllUsers();
+
+//const save = async (event) => {
+//	try {
+//	await users.doc("GGgKAZ1p8ub4dW9lKTGOfVlTgkZ2").set({
+//		name: "Riley",
+//		role: "UX",
+//		company: "place",
+//	});
+//	} catch (error) {
+//		console.error(error);
+//	}
+// };
+
+// save();

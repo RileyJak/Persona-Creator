@@ -1,52 +1,73 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../css/settings-form.css";
 import { provider, auth, users } from "../data/firebase";
 
 function SettingsForm(props) {
-	const {
-		name,
-		company,
-		role,
-		onNameChange,
-		onRoleChange,
-		onCompanyChange,
-		userId,
-	} = props;
+	const { user } = props;
 
+	const [isSaving, setIsSaving] = useState(false);
 
-	const read = async (name, role, company) => {
-		
+	const [name, setName] = useState();
+	const [role, setRole] = useState();
+	const [company, setCompany] = useState();
+
+	const onNameChange = (event) => {
+		setName(event.target.value);
+	};
+
+	const onRoleChange = (event) => {
+		setRole(event.target.value);
+	};
+	const onCompanyChange = (event) => {
+		setCompany(event.target.value);
+	};
+
+	const update = async (event) => {
+		event.preventDefault();
+		setIsSaving(true);
 		try {
-		  await users.doc(userId).get({
-			name,
-			role,
-			company,
-		  });
-		  
+			await users.doc(user.uid).set({
+				name,
+				role,
+				company,
+			});
 		} catch (error) {
-		  console.error(error);
+			console.error(error);
 		}
-	  };
+		setIsSaving(false);
+	};
 
+	useEffect(() => {
+		async function read() {
+			try {
+				const snapshot = await users.doc(user.uid).get();
 
-	  const update = async (name, role, company) => {
-		
+				const data = snapshot.data();
+				setRole(data.role);
+				setName(data.name);
+				setCompany(data.company);
+			} catch (error) {
+				console.error(error);
+			}
+		}
+		read();
+	}, [user]);
+
+	const read = async () => {
 		try {
-		  await users.doc(userId).update({
-			name,
-			role,
-			company,
-		  });
-		  
+			await users.doc(user).get({
+				name,
+				role,
+				company,
+			});
 		} catch (error) {
-		  console.error(error);
+			console.error(error);
 		}
-	  };
-
+	};
 
 	return (
 		<>
-			<form className="settings-form">
+			<form onSubmit={update} className="settings-form">
 				<div className="settings-form__div">
 					<label className="settings-form__label">Name:</label>
 					<input
@@ -78,7 +99,7 @@ function SettingsForm(props) {
 					></input>
 				</div>
 				<div className="settings-form__button_container">
-					<button onclick={update(name, role, company)} className="settings-form__button">Edit</button>
+					<button className="settings-form__button">Save</button>
 				</div>
 			</form>
 		</>
