@@ -3,8 +3,6 @@ import { Helmet } from "react-helmet";
 import RegisterForm from "../components/register-form";
 
 function Register(props) {
-  const userId = props.user.uid;
-  console.log(userId)
   return (
     <>
       <Helmet>

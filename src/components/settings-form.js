@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/settings-form.css";
-import { provider, auth } from "../data/firebase";
+import { provider, auth, users } from "../data/firebase";
 
 function SettingsForm(props) {
 	const {
@@ -10,7 +10,40 @@ function SettingsForm(props) {
 		onNameChange,
 		onRoleChange,
 		onCompanyChange,
+		userId,
 	} = props;
+
+
+	const read = async (name, role, company) => {
+		
+		try {
+		  await users.doc(userId).get({
+			name,
+			role,
+			company,
+		  });
+		  
+		} catch (error) {
+		  console.error(error);
+		}
+	  };
+
+
+	  const update = async (name, role, company) => {
+		
+		try {
+		  await users.doc(userId).update({
+			name,
+			role,
+			company,
+		  });
+		  
+		} catch (error) {
+		  console.error(error);
+		}
+	  };
+
+
 	return (
 		<>
 			<form className="settings-form">
@@ -45,7 +78,7 @@ function SettingsForm(props) {
 					></input>
 				</div>
 				<div className="settings-form__button_container">
-					<button className="settings-form__button">Edit</button>
+					<button onclick={update(name, role, company)} className="settings-form__button">Edit</button>
 				</div>
 			</form>
 		</>

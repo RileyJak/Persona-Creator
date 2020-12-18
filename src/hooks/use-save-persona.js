@@ -22,7 +22,7 @@ function useSavePersona(userId) {
 	});
 
 	const randomData = () => {
-		console.log(userId);
+		setHasSaved(false);
 		setPersonaData({
 			name: faker.name.findName(),
 			gender: faker.name.gender(),

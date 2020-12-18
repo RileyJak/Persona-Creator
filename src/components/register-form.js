@@ -11,34 +11,29 @@ function RegisterForm(props) {
 		onNameChange,
 		onRoleChange,
 		onCompanyChange,
+		userId,
 	} = props;
 
-
-	const userId = props.user.uid;
-
-
-
 	const [isSaving, setIsSaving] = useState(false);
-	const [hasSaved, setHasSaved] = useState(false);
+	
 
-	const save = async (userId, event) => {
+	const save = async (event) => {
 		setIsSaving(true);
-		setHasSaved(false);
-		console.log(userId);
 		try {
-			await users.doc(userId).add({
-				name: {name},
-				role: {role},
-				company: {company},
-				
-			});
-			setHasSaved(true);
+		  await users.doc(userId).add({
+			name,
+			role,
+			company,
+		  });
+		  
 		} catch (error) {
-			console.error(error);
+		  console.error(error);
 		}
-
 		setIsSaving(false);
-	};
+	  };
+
+
+	
 	return (
 		<>
 			<form className="register-form">
@@ -75,7 +70,7 @@ function RegisterForm(props) {
 				</div>
 				<div className="register-form__button-container">
 					<Link to="/home">
-						<button onClick={save(userId)} className="register-form__button">Register</button>
+						<button onClick={save} className="register-form__button">Register</button>
 					</Link>
 				</div>
 			</form>
