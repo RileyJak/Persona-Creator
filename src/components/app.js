@@ -50,7 +50,7 @@ function App() {
 					</AuthRoute>
 
 					<Route path="/register">
-						<Register />
+						<Register user={user}/>
 					</Route>
 
 					<Route path="/saved">
