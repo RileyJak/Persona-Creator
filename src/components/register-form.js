@@ -73,8 +73,14 @@ function RegisterForm(props) {
 					></input>
 				</div>
 				<div className="register-form__button-container">
-					<button className="register-form__button">Register</button>
-					<Link to="/home">Continue</Link>
+					<button className="register-form__button">
+						{isSaving ? "Saving" : "Save"}
+					</button>
+				</div>
+				<div className="register-form__link-container">
+					<Link className=".register-form__link" to="/home">
+						Next
+					</Link>
 				</div>
 			</form>
 		</>

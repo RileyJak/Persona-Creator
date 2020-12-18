@@ -99,7 +99,9 @@ function SettingsForm(props) {
 					></input>
 				</div>
 				<div className="settings-form__button_container">
-					<button className="settings-form__button">Save</button>
+					<button className="settings-form__button">
+						{isSaving ? "Saving" : "Save"}
+					</button>
 				</div>
 			</form>
 		</>
