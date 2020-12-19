@@ -10,7 +10,7 @@ As the web app stands users can generate a random persona and save said persona.
 ## Notes
 The web app currently is not as responsive as it should be I plan on polishing the responsive nature once all features are implamented. As of now it works on both my 32in monitor and my 13in macbook air.
 
-![Screenshot](images/Screenshot 2020-12-18 175747.jpeg)
+
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
