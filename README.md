@@ -1,4 +1,7 @@
 # Personas
+
+<img src="src/images/Screenshot 2020-12-18 175747.png"/>
+
 ## About Personas
 This web app was created as an independent final project for a code sprint class at Columbia College Chicago. It includes react framework and a firebase/firestore data base. 
 
